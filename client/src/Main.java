@@ -1,7 +1,8 @@
-import org.mindrot.jbcrypt.BCrypt;
 import view.LoginView;
 
 import javax.swing.*;
+
+import static javax.swing.SwingUtilities.*;
 
 public class Main {
     public static void main(String [] args) {
