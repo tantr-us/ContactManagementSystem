@@ -1,7 +1,7 @@
-import socket.ConnectionListener;
+import socket.Connection;
 
 public class CmsMainServer {
     public static void main(String [] args) {
-        new ConnectionListener().run();
+        Connection.listen();
     }
 }

@@ -11,9 +11,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
-public class ConnectionListener {
+public class Connection {
 
-    public void run() {
+    public static void listen() {
         int THREAD_SIZE = 10;
         int PORT = 4260;
 
