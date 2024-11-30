@@ -44,12 +44,11 @@ class ConnectionHandler implements Runnable {
     @Override
     public void run() {
         try {
-            LogHandler.log(Level.INFO, "Received new connection from " + connection.getInetAddress().getCanonicalHostName());
+            LogHandler.log(Level.INFO, "Received new connection from " + connection.getInetAddress().getHostAddress() + ":" + connection.getPort());
 
             ObjectInputStream in = new ObjectInputStream(connection.getInputStream());
             UserDTO userDTO = (UserDTO) in.readObject();
             System.out.println(userDTO.toString());
-
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
         } catch (ClassNotFoundException e) {
