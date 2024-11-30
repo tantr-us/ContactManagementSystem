@@ -2,9 +2,7 @@ import view.LoginView;
 
 import javax.swing.*;
 
-import static javax.swing.SwingUtilities.*;
-
-public class Main {
+public class CmsMainClient {
     public static void main(String [] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
