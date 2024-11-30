@@ -19,23 +19,23 @@ public class ClientSocket {
 
     public void connect() throws IOException {
         socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
-        outputStream = new ObjectOutputStream(socket.getOutputStream());
-        inputStream = new ObjectInputStream(socket.getInputStream());
         System.out.println("Connected to the server at " + SERVER_ADDRESS + ":" + SERVER_PORT);
     }
 
     public void sendObject(Object object) throws IOException {
+        outputStream = new ObjectOutputStream(socket.getOutputStream());
         outputStream.writeObject(object);
         outputStream.flush();
     }
 
     public Object receiveObject() throws IOException, ClassNotFoundException {
+        inputStream = new ObjectInputStream(socket.getInputStream());
         return inputStream.readObject();
     }
 
     public void close() throws IOException {
-        outputStream.close();
-        inputStream.close();
-        socket.close();
+        if (outputStream != null) outputStream.close();
+        if (inputStream != null) inputStream.close();
+        if (socket != null) socket.close();
     }
 }

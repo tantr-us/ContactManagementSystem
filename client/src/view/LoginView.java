@@ -75,7 +75,6 @@ public class LoginView extends JFrame{
     public String getUsername() throws Exception {
         String username = usernameField.getText();
         if (username.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Username or password is incorrect.", "Login Error", JOptionPane.ERROR_MESSAGE);
             throw new Exception("Username or password is incorrect.");
         }
         return username;
@@ -84,7 +83,6 @@ public class LoginView extends JFrame{
     public String getPassword() throws Exception {
         String password = new String(passwordField.getPassword());
         if (password.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Username or password is incorrect.", "Login Error", JOptionPane.ERROR_MESSAGE);
             throw new Exception("Username or password is incorrect.");
         }
         return password;
@@ -97,7 +95,7 @@ public class LoginView extends JFrame{
     }
 
     public void showErrorDialog(String title, String message) {
-        JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.ERROR_MESSAGE);
     }
 }
 
