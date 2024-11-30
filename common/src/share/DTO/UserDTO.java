@@ -1,6 +1,8 @@
-package share;
+package share.DTO;
 
-public class UserDTO {
+import java.io.Serializable;
+
+public class UserDTO implements Serializable {
     private String username;
     private String password;
     private int role;

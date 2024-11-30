@@ -1,10 +1,13 @@
 package controller;
 
-import share.UserDTO;
+import share.DTO.UserDTO;
+import share.Logging.LogHandler;
+import socket.SocketHandler;
 import view.LoginView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
 
 public class LoginController  implements ActionListener {
     private final LoginView view;
@@ -19,7 +22,13 @@ public class LoginController  implements ActionListener {
             String password = view.getPassword();
             int role = view.getRole();
             UserDTO userDTO = new UserDTO(username, password, role);
-            System.out.println(userDTO.toString());
-        } catch (Exception _) {}
+
+            SocketHandler socketHandler = new SocketHandler("127.0.0.1", 4260);
+            socketHandler.sendData(userDTO);
+            socketHandler.closeConnection();
+
+        } catch (Exception ex) {
+            LogHandler.log(Level.SEVERE, ex.getMessage());
+        }
     }
 }
