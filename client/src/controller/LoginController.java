@@ -28,6 +28,7 @@ public class LoginController  implements ActionListener {
             socketHandler.closeConnection();
 
         } catch (Exception ex) {
+            view.showErrorDialog("Error", ex.getMessage());
             LogHandler.log(Level.SEVERE, ex.getMessage());
         }
     }

@@ -95,6 +95,10 @@ public class LoginView extends JFrame{
         assert role != null;
         return role.getValue();
     }
+
+    public void showErrorDialog(String title, String message) {
+        JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
+    }
 }
 
 class ComboBoxItem {
